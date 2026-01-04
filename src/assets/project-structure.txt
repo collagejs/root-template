@@ -1,0 +1,24 @@
+your-project/
+├── index.html                       # Main HTML file
+├── package.json                     # Project's package file
+├── README.md                        # Template's README file
+├── svelte.config.js                 # Svelte configuration
+├── tsconfig.app.json                # TypeScript configuration for the application code
+├── tsconfig.json                    # TypeScript configuration for the project
+├── tsconfig.node.json               # TypeScript configuration for what runs in Node (i. e. Vite)
+├── vite.config.ts                   # Vite configuration
+├── public/                          # Public files
+├── src/
+│   ├── app.css                      # Global styles
+│   ├── App.svelte                   # Main Application Component
+│   ├── main.ts                      # Application's entry point
+│   ├── assets/                      # Assets folder (for files that get imported as if they were code)
+│   └── lib/
+│       ├── ExternalLink.svelte      # External Link Component
+│       ├── NavBar.svelte            # Navigation Bar
+│       └── routes/                  # Routes folder
+│           ├── NotFound.svelte      # Fallback content
+│           ├── about/               # Route folder
+│           │   └── AboutView.svelte # About View
+│           └── home/                # Route folder
+│               └── HomeView.svelte  # Home View
