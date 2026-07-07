@@ -1,11 +1,6 @@
 import { mount } from 'svelte';
 import App from './App.svelte';
-import { init } from '@svelte-router/core';
 
-init();
-
-const app = mount(App, {
+mount(App, {
     target: document.getElementById('app')!,
 });
-
-export default app;

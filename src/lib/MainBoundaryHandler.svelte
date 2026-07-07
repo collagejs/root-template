@@ -14,5 +14,5 @@
     component tree (it is set up in <code>src/App.svelte</code>).
 </p>
 <p>
-    After fixing the problem, click this <button onclick={reset}>reload</button> button to try again.
+    After fixing the problem, click this <button class="cjs-btn cjs-btn-primary cjs-btn-sm" onclick={reset}>reset</button> button to try again.
 </p>

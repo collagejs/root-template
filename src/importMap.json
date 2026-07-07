@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@cjs-gallery/pinPad": "http://localhost:6100/piece.js"
+  }
+}

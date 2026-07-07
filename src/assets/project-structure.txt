@@ -11,6 +11,7 @@ your-project/
 ├── src/
 │   ├── app.css                      # Global styles
 │   ├── App.svelte                   # Main Application Component
+│   ├── importMap.json               # Import map to be injected by @collagejs/vite-im
 │   ├── main.ts                      # Application's entry point
 │   ├── assets/                      # Assets folder (for files that get imported as if they were code)
 │   └── lib/

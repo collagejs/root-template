@@ -11,12 +11,17 @@ npm run dev
 
 If your browser doesn't open the website directly, tell Vite to open it for you by typing `o` and hitting the ENTER key in Vite's console.
 
+## Enabling the `@collagejs/imo` User Interface
+
+When the homepage loads, open Developer Tools and add the `"imo-ui"` key-value pair in Local Storage with the value `true`.  Reload the browser.
+
 ## What You Get
 
 A *Vite + Svelte + TS* project with routing capabilities and the ability to mount *CollageJS* pieces (micro-frontends) created in any technology (React, Vue, Solid, Svelte, plain JS/TS, etc.).
 
-The code in this project should be self-explanatory, and what's not explaining itself should be explained by the content the project displays when running.  If you feel, however, that the provided information is not sufficient, feel free to [raise an issue](https://github.com/collagejs/root-template/issues).
+The code in this project should be self-explanatory, and what's not explaining itself should be explained by the content the project displays when running, at least to some extent.  If you feel, however, that the provided information is not sufficient, feel free to [raise an issue](https://github.com/collagejs/root-template/issues).
 
 ## Meta Information
 
 - Created with `create-vite` v8.2.0
+- Upgraded to Vite v8, TypeScript v6

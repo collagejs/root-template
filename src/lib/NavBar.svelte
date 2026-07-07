@@ -3,6 +3,16 @@
     import { Link, LinkContext } from '@svelte-router/core';
     import routerLogo from '@svelte-router/core/logo48';
     import ExternalLink from './ExternalLink.svelte';
+    import { getAppCtx } from '../AppCtx.svelte';
+    import Palette from '@lucide/svelte/icons/palette';
+
+    const themes = ['royal', 'accent', 'nature', 'sky'] as const;
+    let curTheme = $state(1);
+    const appCtx = getAppCtx();
+
+    $effect(() => {
+        appCtx.theme = themes[curTheme];
+    });
 </script>
 
 <nav>
@@ -10,7 +20,15 @@
         <ExternalLink href="https://collagejs.dev">
             <img src={logo} alt="CollageJS" />
         </ExternalLink>
-        CollageJS
+        <span
+            class="theme-toggle"
+            onkeydown= {() => { }}
+            tabindex={-1}
+            onclick={() => curTheme = (curTheme + 1) % themes.length}
+            role="button"
+        >
+            CollageJS <Palette />
+        </span>
     </div>
     <div class="nav-items">
         <ExternalLink href="https://svelte-router.dev">
@@ -19,6 +37,9 @@
         <LinkContext activeState={{ class: 'active', aria: { current: 'page' } }}>
         <div class="nav-item">
             <Link activeFor="home" href="/">Home</Link>
+        </div>
+        <div class="nav-item">
+            <Link activeFor="pin-pad" href="/pin-pad">PIN Pad</Link>
         </div>
         <div class="nav-item">
             <Link activeFor="feature" href="/feature">Feature</Link>
@@ -33,6 +54,7 @@
 <style>
     nav {
         display: flex;
+        padding: 0.5rem 1rem;
         gap: 0.5rem;
         align-items: center;
 
@@ -42,6 +64,11 @@
             align-items: center;
             font-size: larger;
             font-weight: bold;
+            background: var(--cjs-primary-gradient);
+            padding-left: 0.5rem;
+            padding-right: 1.5rem;
+            padding-top: 0.2rem;
+            border-radius: var(--cjs-radius-lg);
         }
 
         & .nav-items {
@@ -65,6 +92,10 @@
                     }
                 }
             }
+        }
+
+        & .theme-toggle {
+            cursor: pointer;
         }
     }
 </style>

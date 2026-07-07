@@ -1,4 +1,11 @@
-<h1>Nothing to See Here</h1>
+<script lang="ts">
+    import { getLayoutCtx } from "../LayoutContext.svelte";
+    import CircleOff from "@lucide/svelte/icons/circle-off";
+
+    getLayoutCtx().fileUrl = import.meta.url;
+</script>
+
+<h1><CircleOff /> Nothing to See Here</h1>
 <p>
     You have reached fallback content.  This happens because the current URL does not match any defined routes.
 </p>
