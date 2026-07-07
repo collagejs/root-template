@@ -1,7 +1,6 @@
 <script lang="ts">
     import logo from '@collagejs/core/logo/48';
     import { Link, LinkContext } from '@svelte-router/core';
-    import routerLogo from '@svelte-router/core/logo48';
     import ExternalLink from './ExternalLink.svelte';
     import { getAppCtx } from '../AppCtx.svelte';
     import Palette from '@lucide/svelte/icons/palette';
@@ -31,9 +30,6 @@
         </span>
     </div>
     <div class="nav-items">
-        <ExternalLink href="https://svelte-router.dev">
-            <img src={routerLogo} alt="webJose's Svelte Router" />
-        </ExternalLink>
         <LinkContext activeState={{ class: 'active', aria: { current: 'page' } }}>
         <div class="nav-item">
             <Link activeFor="home" href="/">Home</Link>
