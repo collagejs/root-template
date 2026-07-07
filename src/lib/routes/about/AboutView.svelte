@@ -17,12 +17,12 @@
 </p>
 <h2>Out of the Box...</h2>
 <ul>
-    <li><SquareCheck /> <CollageJS /> library integration:  Core library, Svelte adapter and Vite plugin</li>
-    <li><SquareCheck /> Svelte Router setup with basic routes</li>
-    <li><SquareCheck /> Navigation bar with links to <strong>Home</strong> and <strong>About</strong> pages</li>
-    <li><SquareCheck /> A PIN pad route that showcases an external <CollageJs /> piece</li>
+    <li><SquareCheck color="var(--cjs-primary)" /> <CollageJS /> library integration:  Core library, Svelte adapter and Vite plugin</li>
+    <li><SquareCheck color="var(--cjs-primary)" /> Svelte Router setup with basic routes</li>
+    <li><SquareCheck color="var(--cjs-primary)" /> Navigation bar with links to <strong>Home</strong> and <strong>About</strong> pages</li>
+    <li><SquareCheck color="var(--cjs-primary)" /> A PIN pad route that showcases an external <CollageJs /> piece</li>
     <li>
-        <SquareCheck /> A "Feature" route that falls back until removed or made functional, perhaps by mounting your first
+        <SquareCheck color="var(--cjs-primary)" /> A "Feature" route that falls back until removed or made functional, perhaps by mounting your first
         <CollageJS /> micro-frontend
     </li>
 </ul>
