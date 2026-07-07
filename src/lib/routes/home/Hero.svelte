@@ -8,7 +8,7 @@
         <ExternalLink href="https://collagejs.dev">
             <img src={bigLogo} alt="CollageJS" />
         </ExternalLink>
-        <h1>CollageJS</h1>
+        <h1 class="cjs-text-primary">CollageJS</h1>
         <div class="cjs-text-muted">
             <p>Micro-frontend library for web applications.</p>
             <p>Build with any framework.</p>
