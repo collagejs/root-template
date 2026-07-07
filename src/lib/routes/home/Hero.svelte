@@ -1,10 +1,13 @@
 <script lang="ts">
     import bigLogo from "@collagejs/core/logo/512";
+    import ExternalLink from "../../ExternalLink.svelte";
 </script>
 
 <div class="hero">
     <div class="hero-content">
-        <img src={bigLogo} alt="CollageJS" />
+        <ExternalLink href="https://collagejs.dev">
+            <img src={bigLogo} alt="CollageJS" />
+        </ExternalLink>
         <h1>CollageJS</h1>
         <div class="cjs-text-muted">
             <p>Micro-frontend library for web applications.</p>
