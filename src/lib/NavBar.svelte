@@ -39,6 +39,9 @@
             <Link activeFor="home" href="/">Home</Link>
         </div>
         <div class="nav-item">
+            <Link activeFor="intro" href="/intro">Intro</Link>
+        </div>
+        <div class="nav-item">
             <Link activeFor="pin-pad" href="/pin-pad">PIN Pad</Link>
         </div>
         <div class="nav-item">

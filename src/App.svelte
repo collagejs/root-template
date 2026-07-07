@@ -2,6 +2,7 @@
     import { Fallback, Route, Router } from "@svelte-router/core";
     import NavBar from "./lib/NavBar.svelte";
     import HomeView from "./lib/routes/home/HomeView.svelte";
+    import IntroView from "./lib/routes/intro/IntroView.svelte";
     import AboutView from "./lib/routes/about/AboutView.svelte";
     import NotFound from "./lib/routes/NotFound.svelte";
     import MainBoundaryHandler from "./lib/MainBoundaryHandler.svelte";
@@ -56,6 +57,9 @@
                     <Layout>
                         <Route key="home" path="/">
                             <HomeView />
+                        </Route>
+                        <Route key="intro" path="/intro">
+                            <IntroView />
                         </Route>
                         <Route key="pin-pad" path="/pin-pad">
                             {#await pingPinPadServer()}
