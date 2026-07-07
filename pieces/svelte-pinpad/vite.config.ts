@@ -4,11 +4,12 @@ import { cjsCssPlugin } from '@collagejs/vite-css';
 
 // https://vite.dev/config/
 export default defineConfig(({ command }) => {
+    const port = 6100;
     return {
         plugins: [svelte(), cjsCssPlugin({
-            serverPort: 6100,
+            serverPort: port,
             aim: false
         })],
-        base: command === 'build' ? 'http://localhost:6100/' : '/',
+        base: command === 'build' ? `http://localhost:${port}/` : '/',
     };
 });
