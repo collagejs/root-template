@@ -4,6 +4,7 @@
     import { getLayoutCtx } from "../../LayoutContext.svelte";
     import Info from "@lucide/svelte/icons/info";
     import SquareCheck from "@lucide/svelte/icons/square-check-big";
+    import CollageJs from "../../CollageJs.svelte";
 
     getLayoutCtx().fileUrl = import.meta.url;
 </script>
@@ -19,6 +20,7 @@
     <li><SquareCheck /> <CollageJS /> library integration:  Core library, Svelte adapter and Vite plugin</li>
     <li><SquareCheck /> Svelte Router setup with basic routes</li>
     <li><SquareCheck /> Navigation bar with links to <strong>Home</strong> and <strong>About</strong> pages</li>
+    <li><SquareCheck /> A PIN pad route that showcases an external <CollageJs /> piece</li>
     <li>
         <SquareCheck /> A "Feature" route that falls back until removed or made functional, perhaps by mounting your first
         <CollageJS /> micro-frontend
