@@ -8,7 +8,6 @@ export default defineConfig(({ command }) => {
     return {
         plugins: [svelte(), cjsCssPlugin({
             serverPort: port,
-            aim: false
         })],
         base: command === 'build' ? `http://localhost:${port}/` : '/',
     };
