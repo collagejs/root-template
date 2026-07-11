@@ -36,7 +36,7 @@
 
     async function pingPinPadServer() {
         try {
-            const response = await fetch("http://localhost:6100");
+            const response = await fetch("http://localhost:6101");
             return true;
         } catch (error) {
             return false;
