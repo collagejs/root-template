@@ -12,6 +12,9 @@
     let maxLength = $state(4);
     let clearOnDispatch = $state(true);
     let tipVisible = $state(true);
+    let shadow = $state<boolean | ShadowRootInit>(true);
+    let containerBgColor = $state("#1b9d60");
+    let containerPadding = $state(15);
 
     function handlePinDispatched(pin: string) {
         userPin = pin;
@@ -29,24 +32,89 @@
     shadow DOM where the piece has been mounted.
 </p>
 <div class="pinPad-controls">
-    <label>
-        Max PIN Length:
-        <input type="range" min="2" max="10" bind:value={maxLength} />
-    </label>
-    <label>
-        <input type="checkbox" bind:checked={clearOnDispatch} />
-        Clear on Dispatch
-    </label>
+    <div>
+        <h4>Piece Properties</h4>
+        <div class="controls-container">
+            <label>
+                Max PIN Length:
+                <input type="range" min="2" max="10" bind:value={maxLength} />
+            </label>
+            <label>
+                <input type="checkbox" bind:checked={clearOnDispatch} />
+                Clear on PIN Dispatch
+            </label>
+        </div>
+    </div>
+    <div>
+        <h4>Container Settings</h4>
+        <div class="controls-container">
+            <label>
+                <input
+                    type="radio"
+                    name="shadow"
+                    value={false}
+                    bind:group={shadow}
+                />
+                <span
+                    class="color-legend dom cjs-rounded-circle"
+                    title="The piece container's border will be this color if it successfully mounts in the Light DOM."
+                ></span>
+                Light DOM
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    name="shadow"
+                    value={true}
+                    bind:group={shadow}
+                />
+                <span
+                    class="color-legend open cjs-rounded-circle"
+                    title="The piece container's border will be this color if it successfully mounts in the Open Shadow DOM."
+                ></span>
+                Open Shadow Root
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    name="shadow"
+                    value={{ mode: "closed" }}
+                    bind:group={shadow}
+                />
+                <span
+                    class="color-legend closed cjs-rounded-circle"
+                    title="The piece container's border will be this color if it successfully mounts in the Closed Shadow DOM."
+                ></span>
+                Closed Shadow Root
+            </label>
+            <label>
+                Background Color:
+                <input type="color" bind:value={containerBgColor} />
+                <span class="cjs-text-muted">(transparency is applied)</span>
+            </label>
+            <label>
+                Padding (in px):
+                <input type="range" min="5" max="40" list="padding-values" bind:value={containerPadding} />
+                <datalist id="padding-values">
+                    <option value="15"></option>
+                    <option value="25"></option>
+                    <option value="35"></option>
+                </datalist>
+            </label>
+        </div>
+    </div>
 </div>
 <div class="tip" style:visibility={tipVisible ? "visible" : "hidden"}>
-    <LightBulb color="var(--cjs-primary)" /> You can use the keyboard to type the PIN if you focus on it.
+    <LightBulb color="var(--cjs-primary)" /> You can use the keyboard to type the
+    PIN if you focus on it.
 </div>
 <Piece
     {...piece(pinPad, {
-        shadow: true,
+        shadow,
         containerProps: {
             onfocusin: () => handlePieceFocus(true),
             onfocusout: () => handlePieceFocus(false),
+            style: `background-color: ${containerBgColor}55; padding: ${containerPadding}px;`,
         },
     })}
     pinDispatched={handlePinDispatched}
@@ -74,12 +142,19 @@
 
     .pinPad-controls {
         display: flex;
-        gap: 1rem;
+        align-items: start;
+        gap: 2rem;
         margin-bottom: 1rem;
 
         & label {
             display: flex;
             align-items: center;
+            gap: 0.5rem;
+        }
+
+        & .controls-container {
+            display: flex;
+            flex-direction: column;
             gap: 0.5rem;
         }
     }
@@ -90,5 +165,45 @@
         margin-bottom: 0.5rem;
         padding: 0.5rem;
         width: fit-content;
+    }
+
+    .color-legend {
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+
+        &.dom {
+            background-color: var(--cjs-primary);
+        }
+
+        &.open {
+            background-color: var(--cjs-primary-700);
+        }
+
+        &.closed {
+            background-color: var(--cjs-primary-800);
+        }
+    }
+
+    :global {
+        [data-cjs-piece-host] {
+            display: block !important;
+            width: fit-content;
+            border: 2px solid var(--cjs-primary);
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+        }
+
+        [data-cjs-piece-host="dom"] {
+            border-color: var(--cjs-primary);
+        }
+
+        [data-cjs-piece-host="open"] {
+            border-color: var(--cjs-primary-700);
+        }
+
+        [data-cjs-piece-host="closed"] {
+            border-color: var(--cjs-primary-800);
+        }
     }
 </style>
