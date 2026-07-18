@@ -48,7 +48,7 @@
     <link rel="icon" type="image/svg+xml" href={logo} />
 </svelte:head>
 
-<div class="cjs-theme-{ctx.theme}">
+<div class="cjs-palette-{ctx.theme}">
     <Router>
         <NavBar />
         <svelte:boundary>
